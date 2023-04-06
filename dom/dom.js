@@ -75,12 +75,18 @@ let formSubmit = (event) => {
     // a page refresh is NOT what we want here so. . . 
     event.preventDefault();
     console.log(event);
+    let fname = event.target[0].value;
+    let lname = event.target[1].value
+    console.log('form data:', fname, lname)
 
-    // let fname = event.path[0][0].value;
-    // console.log(fname)
+    form.reset();
+    let new_html = document.createElement('h3');
+    new_html.innerHTML = fname + " " + lname;
+    new_html.className = 'color-change1';
+    form.after(new_html);
 }
 
-let form = document.getElementById('submit-button');
+let form = document.getElementById('nameForm');
 console.log(form);
 form.addEventListener('submit', formSubmit)
 
